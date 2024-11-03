@@ -28,7 +28,6 @@ A = subprocess.Popen(
 )
 
 send_command(A, 'Hi\n')
-
 hi_response = A.stdout.readline().strip()
 
 if hi_response != 'Hi':
@@ -38,6 +37,7 @@ if hi_response != 'Hi':
 random_nums = []
 
 for i in range(100):
+    # Get a random int from A and check weather the response is correct:
     send_command(A, 'GetRandom\n')
     int_response = A.stdout.readline().strip()
 
@@ -46,7 +46,6 @@ for i in range(100):
     except ValueError:
         print('A responsed with', int_response, ' when asked for a random int')
         close_gracefully(A, 1)
-        
 
 send_command(A, 'Shutdown\n')
 
